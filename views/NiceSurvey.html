@@ -17,24 +17,41 @@
 	<div class="container-md p-3 my-3 border bg-dark text-white" id="survey">
     <h1>Survey</h1>
     <form>
-      <h2> What fruits(s) do you like? </h2>
-      I like:<br>
-      <input type="text" name="fruit" placeholder="fruit name..." required />
-      <br>
-      <br>
-      <h2> What color(s) do you like? </h2>
-	    I like:<br>
-		  <input type="checkbox" name="color" value="Red"> Red<br>
-		  <input type="checkbox" name="color" value="Green"> Green<br>
-      <input type="checkbox" name="color" value="Blue"> Blue<br>
-      <br>
-      <h2>What is your favorite animal?</h2>
-      I like:<br>
-      <select name="animal">
-			  <option value="Cat" selected="selected">Cat</option>
-			  <option value="Dog">Dog</option>
-			  <option value="Turtle">Turtle</option>
-      </select>
+        <div class="question-box">
+            <label style="display: block; margin-bottom: 10px;"> <b>Describe your initial impression of the user interface below in 5 words.</b> </label>
+            <input style="margin-right: 0;"  type="textarea" id="textAnswer" name="textAnswer" size="50" placeholder="Enter you answer here......" required />
+        </div>
+        <div class="question-box">
+            <label style="display: block; margin-bottom: 10px;"><b>How would you rate the overall usability of the UI?</b></label>
+            <label for="Q1A">Excellent</label><input type="radio" id="Q1A" name="Q1" value="Excellent">
+            <label for="Q1B">Very Good</label><input type="radio" id="Q1B" name="Q1" value="Very Good">
+            <label for="Q1C">Good</label><input type="radio" id="Q1C" name="Q1" value="Good">
+            <label for="Q1D">Fair</label><input type="radio" id="Q1D" name="Q1" value="Fair">
+            <label for="Q1E" >Poor</label><input type="radio" id="Q1E" name="Q1" value="Poor" style="margin-right: 0px;">
+            <br>
+        </div>
+        <div class="question-box">
+            <label style="display: block; margin-bottom: 10px;"><b>How would you rate the overall aesthetic appeal of the UI?</b></label>
+            <label for="Q2A">Excellent</label><input type="radio" id="Q2A" name="Q2" value="Excellent">
+            <label for="Q2B">Very Good</label><input type="radio" id="Q2B" name="Q2" value="Very Good">
+            <label for="Q2C">Good</label><input type="radio" id="Q2C" name="Q2" value="Good">
+            <label for="Q2D">Fair</label><input type="radio" id="Q2D" name="Q2" value="Fair">
+            <label for="Q2E">Poor</label><input type="radio" id="Q2E" name="Q2" value="Poor" style="margin-right: 0px;">
+            <br>
+        </div>
+        <div class="question-box">
+            <label style="display: block; margin-bottom: 10px;"><b>Select the UI elements that you find most appealing or effective:</b></label>
+            <label for="Q3A">Color Scheme</label><input type="checkbox" id="Q3A" name="Q3" value="Color Scheme">
+            <label for="Q3B">Typography</label><input type="checkbox" id="Q3B" name="Q3" value="Typography">
+            <label for="Q3C">Iconography</label><input type="checkbox" id="Q3C" name="Q3" value="Iconography"> <br>
+            <label for="Q3D">Button Design</label><input type="checkbox" id="Q3D" name="Q3" value="Button Design">
+            <label for="Q3E">Layout Structure</label><input type="checkbox" id="Q3E" name="Q3" value="Layout Structure" style="margin-right: 0px;">
+            <br>
+        </div>
+        <div class="comment-box">
+            <label for="Comment" style="text-align: left; display: block; margin-bottom: 10px;"><b>Comments: </b></label>
+            <textarea id="comment" name="comment" placeholder="Enter your comments here......"></textarea>
+        </div>
       <br>
       <br>
       <button type="submit" class="btn btn-warning" id="bb">Submit</button>

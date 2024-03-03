@@ -5,10 +5,10 @@
 
 <body>
     <h1>Survey analysis</h1>
-    <h2>Colors</h2>
+    <h2>Q1 answer</h2>
     <ul>
     <% for (var i=0; i<results[0].length; i++){ %>
-        <li><%= results[0][i].color %> :  <%= results[0][i].count %></li>
+        <li><%= results[0][i].textAnswer %> :  <%= results[0][i].count %></li>
     <% } %>    
     </ul>
     <h2>Fruits</h2>

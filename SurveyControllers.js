@@ -42,17 +42,19 @@ module.exports = function(app){
     // when a user goes to localhost:3000/analysis
     // serve a template (ejs file) which will include the data from the data files
     app.get('/analysis', function(req, res){
-        var color = readData("color");
-        var fruit = readData("fruit");
-        var animal = readData("animal");
-        res.render('showResults', {results: [color, fruit, animal]});
-        console.log([color, fruit, animal]);
+        var textanswer = readData("textAnswer")
+        var Q1 = readData("Q1")
+        var Q2 = readData("Q2")
+        var Q3 = readData("Q3")
+        var comment = readData("comment")
+        res.render('showResults', {results: [ textanswer, Q1, Q2, Q3, comment]});
+        console.log([ textanswer, Q1, Q2]);
     });
 
     // when a user goes to localhost:3000/niceSurvey
     // serve a static html (the survey itself to fill in)
-    app.get('/niceSurvey', function(req, res){
-        res.sendFile(__dirname+'/views/niceSurvey.html');
+    app.get('/NiceSurvey', function(req, res){
+        res.sendFile(__dirname+'/views/NiceSurvey.html');
     });
 
     // when a user types SUBMIT in localhost:3000/niceSurvey 
@@ -61,22 +63,30 @@ module.exports = function(app){
     app.post('/niceSurvey', urlencodedParser, function(req, res){
         console.log(req.body);
         var json = req.body;
-        for (var key in json){
+    
+        for (var key in json) {
             console.log(key + ": " + json[key]);
-            // in the case of checkboxes, the user might check more than one
-            if ((key === "color") && (json[key].length === 2)){
-                for (var item in json[key]){
-                    combineCounts(key, json[key][item]);
+            if (key === "Q1" || "Q2" || "Q3") {
+                // Handle the usability radio button input
+                combineCounts(key, json[key]);
+            } else if (key === "textAnswer" || "comment") {
+                // Handle the text answer input
+                combineCounts(key, json[key]);
+            } else {
+                // Handle other inputs, e.g., checkboxes as in your original example
+                if (json[key].length === 2) {
+                    for (var item in json[key]) {
+                        combineCounts(key, json[key][item]);
+                    }
+                } else {
+                    combineCounts(key, json[key]);
                 }
             }
-            else {
-                combineCounts(key, json[key]);
-            }
         }
-        // mystery line... (if I take it out, the SUBMIT button does change)
-        // if anyone can figure this out, let me know!
-        res.sendFile(__dirname + "/views/niceSurvey.html");
+    
+        res.sendFile(__dirname + "/views/NiceSurvey.html");
     });
+    
     
 
 };
