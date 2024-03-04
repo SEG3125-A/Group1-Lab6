@@ -57,13 +57,13 @@ module.exports = function(app){
         res.sendFile(__dirname+'/views/NiceSurvey.html');
     });
 
-    // when a user types SUBMIT in localhost:3000/niceSurvey 
+    // when a user types SUBMIT in localhost:3000/niceSurvey
     // the action.js code will POST, and what is sent in the POST
     // will be recuperated here, parsed and used to update the data files
     app.post('/niceSurvey', urlencodedParser, function(req, res){
         console.log(req.body);
         var json = req.body;
-    
+
         for (var key in json) {
             console.log(key + ": " + json[key]);
             if (key === "Q1" || "Q2" || "Q3") {
@@ -83,10 +83,57 @@ module.exports = function(app){
                 }
             }
         }
-    
+
         res.sendFile(__dirname + "/views/NiceSurvey.html");
     });
-    
-    
+
+    // Export controller function
+    module.exports = function (app) {
+
+        // Handle GET requests to /analysis
+        app.get('/analysis', function (req, res) {
+            // Read data from files
+            const textanswer = readData('textAnswer');
+            const Q1 = readData('Q1');
+            const Q2 = readData('Q2');
+            const Q3 = readData('Q3');
+            const comment = readData('comment');
+
+            // Render the analysis page with the retrieved data
+            res.sendFile(__dirname + '/views/showResults.html');
+        });
+
+        // Handle GET requests to /niceSurvey
+        app.get('/NiceSurvey', function (req, res) {
+            // Serve the static HTML survey page
+            res.sendFile(__dirname + '/views/NiceSurvey.html');
+        });
+
+        // Handle POST requests to /niceSurvey
+        app.post('/niceSurvey', urlencodedParser, function (req, res) {
+            // Process the form data and update data files
+            const json = req.body;
+
+            for (const key in json) {
+                if (Object.hasOwnProperty.call(json, key)) {
+                    if (key === "Q1" || key === "Q2" || key === "Q3" || key === "textAnswer" || key === "comment") {
+                        // Handle radio button and text input
+                        combineCounts(key, json[key]);
+                    } else {
+                        // Handle checkboxes
+                        if (Array.isArray(json[key])) {
+                            json[key].forEach(value => combineCounts(key, value));
+                        } else {
+                            combineCounts(key, json[key]);
+                        }
+                    }
+                }
+            }
+
+            // Redirect to the analysis page after processing the form data
+            res.redirect('/analysis');
+        });
+    };
+
 
 };
