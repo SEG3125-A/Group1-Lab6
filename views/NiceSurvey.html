@@ -5,6 +5,7 @@
 
     <!-- Style sheet (CSS) and JavaScript scripts necessary to use Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>    
@@ -13,15 +14,20 @@
   </head>
   
   <body>
+   
 	
-	<div class="container-md p-3 my-3 border bg-dark text-white" id="survey">
-    <h1>Survey</h1>
+	<div class="container-md p-3 my-3 text-black" id="survey">
+    
+    <h1 class="text-center">Youtube Layout Survey</h1>
+    <div class="imageContainer">
+      <img class="image-im img-fluid" src="/assets/images/youtubeSC.png">
+    </div>
     <form>
-        <div class="question-box">
+        <div class="question-box text-center ">
             <label style="display: block; margin-bottom: 10px;"> <b>Describe your initial impression of the user interface below in 5 words.</b> </label>
             <input style="margin-right: 0;"  type="textarea" id="textAnswer" name="textAnswer" size="50" placeholder="Enter you answer here......" required />
         </div>
-        <div class="question-box">
+        <div class="question-box text-center">
             <label style="display: block; margin-bottom: 10px;"><b>How would you rate the overall usability of the UI?</b></label>
             <label for="Q1A">Excellent</label><input type="radio" id="Q1A" name="Q1" value="Excellent">
             <label for="Q1B">Very Good</label><input type="radio" id="Q1B" name="Q1" value="Very Good">
@@ -30,7 +36,8 @@
             <label for="Q1E" >Poor</label><input type="radio" id="Q1E" name="Q1" value="Poor" style="margin-right: 0px;">
             <br>
         </div>
-        <div class="question-box">
+        <div class="">
+        <div class="question-box text-center">
             <label style="display: block; margin-bottom: 10px;"><b>How would you rate the overall aesthetic appeal of the UI?</b></label>
             <label for="Q2A">Excellent</label><input type="radio" id="Q2A" name="Q2" value="Excellent">
             <label for="Q2B">Very Good</label><input type="radio" id="Q2B" name="Q2" value="Very Good">
@@ -39,8 +46,9 @@
             <label for="Q2E">Poor</label><input type="radio" id="Q2E" name="Q2" value="Poor" style="margin-right: 0px;">
             <br>
         </div>
-        <div class="question-box">
-            <label style="display: block; margin-bottom: 10px;"><b>Select the UI elements that you find most appealing or effective:</b></label>
+        </div>
+        <div class="question-box text-center">
+            <label  style="display: block; margin-bottom: 10px;"><b>Select the UI elements that you find most appealing or effective:</b></label>
             <label for="Q3A">Color Scheme</label><input type="checkbox" id="Q3A" name="Q3" value="Color Scheme">
             <label for="Q3B">Typography</label><input type="checkbox" id="Q3B" name="Q3" value="Typography">
             <label for="Q3C">Iconography</label><input type="checkbox" id="Q3C" name="Q3" value="Iconography"> <br>
@@ -48,13 +56,15 @@
             <label for="Q3E">Layout Structure</label><input type="checkbox" id="Q3E" name="Q3" value="Layout Structure" style="margin-right: 0px;">
             <br>
         </div>
-        <div class="comment-box">
-            <label for="Comment" style="text-align: left; display: block; margin-bottom: 10px;"><b>Comments: </b></label>
+        <div class="comment-box text-center">
+            <label class="text-center" for="Comment" style="text-align: left; display: block; margin-bottom: 10px;"><b>Comments: </b></label>
             <textarea id="comment" name="comment" placeholder="Enter your comments here......"></textarea>
         </div>
       <br>
       <br>
+      <div class="text-center">
       <button type="submit" class="btn btn-warning" id="bb">Submit</button>
+      </div>
       <p id="thanks"></p>
     </form>
     </div>

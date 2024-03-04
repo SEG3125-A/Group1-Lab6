@@ -1,0 +1,101 @@
+h1 {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #F3A712 25%,  #E4572E);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+h2 {
+    font-size: 1.5em; 
+    text-align: center;
+    background-color: lightsteelblue;
+    padding: 10px;
+    background-image: linear-gradient(to left, #E4572E 45%, #F3A712);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    background-color: #0D1F2D;
+}
+
+/* Requirement 5, 6, 7, 8 */
+.question-box, .comment-box {
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out;
+    max-height: fit-content;
+}
+
+.question-box:hover, .comment-box:hover {
+    transform: scale(1.05);
+}
+
+.question-box input {
+    margin-right: 20px; 
+}
+
+.comment-box #comment {
+    margin-top: 5px;
+    width: 100%;
+    height: 20%;
+    resize: none;
+}
+/* submit button */
+.submit-button {
+    text-align: center;
+    margin-top: 20px; 
+}
+
+.submit-button button {
+    font-size: 18px;
+    padding: 10px 20px; 
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+
+.submit-button button:hover {
+    background-color: #2980b9; 
+}
+/* signature */
+.signature {
+    text-align: right;
+    margin-top: 20px; 
+    font-style: italic; 
+    background-image: linear-gradient(to left, #553c9a, #ee4b2b);
+    background-clip: text;
+    color: transparent;
+}
+/* image */
+.imageContainer{
+    text-align: center;
+    justify-content: center;
+    max-width: fit-content;
+    margin-bottom: 20px;
+}
+.image-im{
+    transition: transform 0.3s ease-in-out;
+    border-radius: 15px;
+}
+.image-im:hover {
+    transform: scale(1.2); 
+}
